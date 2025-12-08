@@ -1,6 +1,6 @@
 ---
 title: "CDS 101 – Final Project Report"
-author: "Group Name / Members"
+author: "Group Name / Janet Tadesse, Jayci, Lauren Graczyk"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
   html_document:
@@ -16,7 +16,7 @@ output:
 
 # 1. Problem Definition
 
-The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks?.  
+The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks.  
 
 This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an decaffeinated option.  
 
@@ -132,6 +132,13 @@ coffee_sales <- data %>%
          product_category,
          product_type,
          product_detail)
+```
+
+```{r}
+coffee_sales <- coffee_sales %>%
+  mutate(
+    is_drinking_chocolate = (product_category == "Drinking Chocolate")
+  )
 ```
 
 ```{r}
