@@ -208,11 +208,11 @@ library(ggplot2)
 
 coffee_sales %>%
   filter(product_category == "Drinking Chocolate") %>%
-  ggplot(aes(x = transaction_qty)) +
+  ggplot(aes(x = transaction_qty,)) +
     geom_histogram(binwidth = 1, color = "white", fill = "skyblue") +
     facet_wrap(~ time_of_day) +
     labs(
-      x = "Transaction Quantity",
+      x = "Hot Chocolate Orders",
       y = "Count",
       title = "Hot Cocoa Transaction Quantities by Time of Day"
     )
@@ -222,13 +222,13 @@ coffee_sales %>%
 library(ggplot2)
 
 coffee_sales %>%
-  filter(is_drinking_chocolate) %>%
-  ggplot(aes(x = time_of_day)) +
-    geom_bar(fill = "green", color = "black") +
+  count(time_of_day, product_category) %>%
+  ggplot(aes(x = time_of_day, y = n, fill = product_category)) +
+    geom_bar(stat = "identity", position = "fill") +
     labs(
       x = "Time of Day",
-      y = "Number of Hot Cocoa Transactions",
-      title = "Hot Cocoa Sales by Time of Day"
+      y = "Percentage of Sales",
+      title = "Total Product Sales by Time of Day"
     ) +
     theme_minimal()
 
