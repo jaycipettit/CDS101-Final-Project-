@@ -213,22 +213,32 @@ This section maps directly to the **EDA** part of the rubric:
 ```{r}
 library(ggplot2)
 
-# Example 1: Histogram of transaction quantities
-ggplot(coffee_sales, aes(x = transaction_qty)) +
-  geom_histogram(binwidth = 1, color = "white", fill = "skyblue") +
-  labs(
-    x = "Transaction Quantity",
-    y = "Count",
-    title = "Distribution of Transaction Quantities"
-  )
+coffee_sales %>%
+  filter(is_drinking_chocolate) %>%
+  ggplot(aes(x = transaction_qty)) +
+    geom_histogram(binwidth = 1, color = "white", fill = "skyblue") +
+    facet_wrap(~ time_of_day) +
+    labs(
+      x = "Transaction Quantity",
+      y = "Count",
+      title = "Hot Cocoa Transaction Quantities by Time of Day"
+    )
+```
 
-ggplot(coffee_sales, aes(x = time_of_day)) +
-  geom_bar(fill = "green", color = "black") +
-  labs(
-    x = "Time of Day",
-    y = "Number of Transactions",
-    title = "Transactions by Time of Day"
-  )
+```{r}
+library(ggplot2)
+
+coffee_sales %>%
+  filter(is_drinking_chocolate) %>%
+  ggplot(aes(x = time_of_day)) +
+    geom_bar(fill = "green", color = "black") +
+    labs(
+      x = "Time of Day",
+      y = "Number of Hot Cocoa Transactions",
+      title = "Hot Cocoa Sales by Time of Day"
+    ) +
+    theme_minimal()
+
 ```
 
 # 5. Visualization Quality and Storytelling
