@@ -16,23 +16,102 @@ output:
 
 # 1. Problem Definition
 
-- Clearly state the main problem or question you are investigating.  
-- Explain why it is interesting or important.  
-- Define the objective(s) of your analysis.  
-- Mention any key assumptions.
+- The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks?.  
+- This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an uncaffeinated option.  
+- Methods: Two-way hypothesis testing because we chose to examine categorical variables and want to note ANY change, positive or negative. 
+
+Null hypothesis: Time of day does not impact the sales of hot chocolate/cocoa drinks. 
+
+Alternative hypothesis: Time of day changes hot chocolate/cocoa drink sales. 
+
+Expected result: We expect hot chocolate/cocoa sales to take up a larger portion of sales later in the day. 
 
 # 2. Data Acquisition & Description
 
-- Name and source of the dataset(s).  
-- How you obtained the data (download link, API, etc.).  
-- Brief description of the variables / features (with units if relevant).  
-- Approximate size (rows, columns).  
-- Any ethical, privacy, or bias considerations (if applicable).
+- The name of the dataset is "Coffee shop sales" and it was retrieved from Kaggle. 
+- The file was downloaded directly from Kaggle.  
+- 1. transaction_id
+
+Unique identifier for each sales transaction.
+Type: Integer
+Units: None
+
+2. transaction_date
+
+The calendar date when the transaction occurred.
+Type: Date
+Units: YYYY-MM-DD
+
+3. transaction_time
+
+The time of day when the transaction was recorded.
+Type: Time (POSIX time)
+Units: HH:MM:SS
+
+4. transaction_qty
+
+Number of units/items purchased in the transaction.
+Type: Integer
+Units: Count
+
+5. store_id
+
+Unique code identifying the store where the transaction took place.
+Type: Integer
+Units: None
+
+6. store_location
+
+The name or geographic location of the store.
+Type: Character (categorical)
+Units: None
+
+7. product_id
+
+Unique identifier for the product sold.
+Type: Integer
+Units: None
+
+8. unit_price
+
+Price of a single unit of the product sold.
+Type: Numeric
+Units: Currency (USD)
+
+9. product_category
+
+Broad category of the product (e.g., Coffee, Tea, Hot cocoa).
+Type: Character (categorical)
+Units: None
+
+10. product_type
+
+More specific product grouping within each category (e.g., Latte, Iced Coffee).
+Type: Character (categorical)
+Units: None
+
+11. product_detail
+
+Detailed description of the product (e.g., “Vanilla Latte – Medium”).
+Type: Character (categorical / descriptive text)
+Units: None  
+
+- The file contains 149116 rows and 11 columns.  
+- There shouldn't be any ethical, privacy, or bias considerations.
 
 ```{r setup-data, echo=FALSE, message=FALSE, warning=FALSE}
-# Example: load a dataset (replace with your own)
-# library(readr)
-# data <- read_csv("data/your_data.csv")
+library(readxl)
+
+data <- read_excel("Coffee Shop Sales.xlsx")
+```
+
+```{r}
+dim(data)
+names(data)
+```
+
+```{r}
+head(data, 10)
 ```
 
 # 3. Data Cleaning & Preprocessing
@@ -46,12 +125,14 @@ Describe the steps you took to make the data usable, for example:
 - Any scaling or encoding.
 
 ```{r cleaning, eval=FALSE}
-# Example pseudo-code for cleaning:
-# data_clean <- data |>
-#   dplyr::filter(!is.na(target_variable)) |>
-#   dplyr::mutate(
-#     new_feature = some_transformation(old_feature)
-#   )
+library(dplyr)
+
+coffee_sales <- data %>%
+  select(transaction_time,
+         transaction_qty,
+         product_category,
+         product_type,
+         product_detail)
 ```
 
 # 4. Exploratory Data Analysis (EDA)
