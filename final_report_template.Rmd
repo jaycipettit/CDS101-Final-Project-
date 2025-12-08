@@ -199,15 +199,8 @@ This section maps directly to the **EDA** part of the rubric:
 - Interpretation connected to the research question  
 
 ```{r eda-summary, message=FALSE, warning=FALSE}
-# library(dplyr)
-# summary(data_clean)
-```
-
-```{r eda-plot-example, message=FALSE, warning=FALSE, fig.cap="Example histogram of a numeric variable (EDA rubric)."}
-# library(ggplot2)
-# ggplot(data_clean, aes(x = some_numeric_variable)) +
-#   geom_histogram(binwidth = 5, color = "white") +
-#   labs(x = "Some Variable", y = "Count", title = "Distribution of Some Variable")
+library(dplyr)
+summary(coffee_sales)
 ```
 
 ```{r}
@@ -240,6 +233,13 @@ coffee_sales %>%
     theme_minimal()
 
 ```
+```{r eda-plot-example, message=FALSE, warning=FALSE, fig.cap="Example histogram of a numeric variable (EDA rubric)."}
+# library(ggplot2)
+# ggplot(data_clean, aes(x = some_numeric_variable)) +
+#   geom_histogram(binwidth = 5, color = "white") +
+#   labs(x = "Some Variable", y = "Count", title = "Distribution of Some Variable")
+```
+
 
 # 5. Visualization Quality and Storytelling
 
