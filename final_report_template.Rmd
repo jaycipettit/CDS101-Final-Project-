@@ -222,6 +222,22 @@ coffee_sales %>%
 library(ggplot2)
 
 coffee_sales %>%
+  filter(product_category == "Drinking Chocolate") %>%
+  ggplot(aes(x = time_of_day)) +
+    geom_bar(fill = "green", color = "black") +
+    labs(
+      x = "Time of Day",
+      y = "Number of Hot Cocoa Transactions",
+      title = "Hot Cocoa Sales by Time of Day"
+    ) +
+    theme_minimal()
+
+```
+
+```{r}
+library(ggplot2)
+
+coffee_sales %>%
   count(time_of_day, product_category) %>%
   ggplot(aes(x = time_of_day, y = n, fill = product_category)) +
     geom_bar(stat = "identity", position = "fill") +
