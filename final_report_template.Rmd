@@ -265,6 +265,8 @@ Use this section to satisfy the **Visualization Quality** rubric criterion:
 - Comment on labels, legends, colors, and overall readability.  
 - Mention any steps you took to make plots accessible and interpretable.
 
+Our plot type is appropriate because we are not documenting a change over time. We want to count the number of items that occur within a certain time of day category and show the percentage of each total for product categories. This makes the plot more comprehansive and clearer for viewers because it accounts for varied sale volumes rather than producing a raw number. For example, if the morning had 100 sales and 50 of them were hot chocolate while the evening had 50 sales and 45 of them were hot chocolate, raw numbers would say there were fewer hot chocolate sales in the evening, which is true. However, it does not relay the fact that sales as a whole decreased in the evening and that hot chocolate went from comprising 50% of total sales to 90% of total sales, which paints a better picture for analysis. The plots are relatively easy to read, however, it would be more beneficial to see the percentages as numbers rather than colored bar sections. 
+
 # 6. Modeling Approach
 
 Explain how you framed the problem and which models you chose:
