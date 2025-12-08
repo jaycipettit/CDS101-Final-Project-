@@ -1,6 +1,6 @@
 ---
 title: "CDS 101 – Final Project Report"
-author: "Group Name / Janet Tadesse, Jayci, Lauren Graczyk"
+author: "Group Name / Janet Tadesse, Jayci Pettit, Lauren Graczyk"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
   html_document:
