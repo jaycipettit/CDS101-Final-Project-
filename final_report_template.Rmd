@@ -30,9 +30,9 @@ Expected result: We expect hot chocolate/cocoa sales to take up a larger portion
 
 # 2. Data Acquisition & Description
 
-- The name of the dataset is "Coffee shop sales" and it was retrieved from Kaggle. 
-- The file was downloaded directly from Kaggle.  
-- 1. transaction_id
+The name of the dataset is "Coffee shop sales" and it was retrieved from Kaggle. 
+The file was downloaded directly from Kaggle.  
+1. transaction_id
 
 Unique identifier for each sales transaction.
 Type: Integer
@@ -48,7 +48,7 @@ Units: YYYY-MM-DD
 
 The time of day when the transaction was recorded.
 Type: Time (POSIX time)
-Units: HH:MM:SS
+Units: YYYY-MM-DD HH:MM:SS
 
 4. transaction_qty
 
