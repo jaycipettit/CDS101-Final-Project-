@@ -207,7 +207,7 @@ summary(coffee_sales)
 library(ggplot2)
 
 coffee_sales %>%
-  filter(is_drinking_chocolate) %>%
+  filter(product_category == "Drinking Chocolate") %>%
   ggplot(aes(x = transaction_qty)) +
     geom_histogram(binwidth = 1, color = "white", fill = "skyblue") +
     facet_wrap(~ time_of_day) +
