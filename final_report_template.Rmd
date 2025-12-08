@@ -16,9 +16,11 @@ output:
 
 # 1. Problem Definition
 
-- The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks?.  
-- This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an uncaffeinated option.  
-- Methods: Two-way hypothesis testing because we chose to examine categorical variables and want to note ANY change, positive or negative. 
+The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks?.  
+
+This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an decaffeinated option.  
+
+Methods: Two-way hypothesis testing because we chose to examine categorical variables and want to note ANY change, positive or negative. 
 
 Null hypothesis: Time of day does not impact the sales of hot chocolate/cocoa drinks. 
 
@@ -116,13 +118,13 @@ head(data, 10)
 
 # 3. Data Cleaning & Preprocessing
 
-Describe the steps you took to make the data usable, for example:
+In this code, we first ensure that the transaction date and transaction time are in the correct formats: transaction_date is converted to a standard Date format (YYYY-MM-DD), and transaction_time is converted to a time format (HH:MM:SS). Next, we create a new dataframe called coffee_sales that contains only the relevant columns for analysis: transaction_time, transaction_qty, product_category, product_type, and product_detail. Finally, we define a function remove_outliers() that identifies outliers using the interquartile range (IQR) method, which considers values outside 1.5 times the IQR above the third quartile or below the first quartile as outliers. Using this function, we filter the original dataset to remove outliers in transaction_qty and unit_price, resulting in a cleaner dataset data_no_outliers that is more suitable for analysis.
 
-- Handling missing values (drop, impute, etc.).  
-- Fixing types (dates, numeric vs. categorical).  
-- Removing outliers (if done).  
-- Creating new features (feature engineering).  
-- Any scaling or encoding.
+```{r}
+data$transaction_date <- as.Date(data$transaction_date)
+
+data$transaction_time <- format(strptime(data$transaction_time, "%H:%M:%S"), "%H:%M:%S")
+```
 
 ```{r cleaning, eval=FALSE}
 library(dplyr)
@@ -133,6 +135,20 @@ coffee_sales <- data %>%
          product_category,
          product_type,
          product_detail)
+```
+
+```{r}
+remove_outliers <- function(x) {
+  Q1 <- quantile(x, 0.25, na.rm = TRUE)
+  Q3 <- quantile(x, 0.75, na.rm = TRUE)
+  IQR <- Q3 - Q1
+  
+  x >= (Q1 - 1.5*IQR) & x <= (Q3 + 1.5*IQR)
+}
+
+data_no_outliers <- data %>%
+  filter(remove_outliers(transaction_qty),
+         remove_outliers(unit_price))
 ```
 
 # 4. Exploratory Data Analysis (EDA)
