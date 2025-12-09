@@ -129,6 +129,7 @@ coffee_sales <- data %>%
   select(transaction_time,
          transaction_date,
          transaction_qty,
+         unit_price,
          product_category,
          product_type,
          product_detail)
@@ -174,16 +175,12 @@ head(coffee_sales)
 ```
 
 ```{r}
-nrow(data)
-# or if you're using a new dataset
-nrow(data_no_outliers)
+nrow(coffee_sales)
 
-# 2. Optionally, check number of NAs
 sum(is.na(data$transaction_time))
 sum(is.na(data$transaction_date))
 
-# 3. Show the structure
-str(data)
+str(coffee_sales)
 ```
 
 ```{r}
@@ -249,11 +246,25 @@ coffee_sales %>%
     theme_minimal()
 
 ```
-```{r eda-plot-example, message=FALSE, warning=FALSE, fig.cap="Example histogram of a numeric variable (EDA rubric)."}
-# library(ggplot2)
-# ggplot(data_clean, aes(x = some_numeric_variable)) +
-#   geom_histogram(binwidth = 5, color = "white") +
-#   labs(x = "Some Variable", y = "Count", title = "Distribution of Some Variable")
+
+```{r}
+library(ggplot2)
+
+coffee_sales %>%
+  filter(product_category == "Drinking Chocolate") %>%
+  ggplot(aes(x = transaction_qty, y = unit_price)) +
+    geom_point(alpha = 0.6) +
+    labs(
+      x = "Transaction Quantity",
+      y = "Unit Price (USD)",
+      title = "Unit price vs. quantity for hot‑cocoa sales"
+    ) +
+    theme_minimal()
+
+```
+
+```{r}
+
 ```
 
 
