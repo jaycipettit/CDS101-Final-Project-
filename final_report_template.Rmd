@@ -16,7 +16,7 @@ output:
 
 # 1. Problem Definition
 
-The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks.  
+The main goal of our project is to  investigate if time of day impacts the sale of hot chocolate/cocoa drinks.  
 
 This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an decaffeinated option.  
 
