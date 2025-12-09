@@ -188,13 +188,7 @@ head(coffee_sales, 10)
 ```
 
 # 4. Exploratory Data Analysis (EDA)
-
-This section maps directly to the **EDA** part of the rubric:
-
-- Summary statistics  
-- Visualizations  
-- Interpretation connected to the research question  
-
+ 
 ```{r eda-summary, message=FALSE, warning=FALSE}
 library(dplyr)
 summary(coffee_sales)
@@ -214,6 +208,7 @@ coffee_sales %>%
       title = "Hot Cocoa Transaction Quantities by Time of Day"
     )
 ```
+This plot shows how many hot cocoa transactions occur at different times of day, separated into morning, afternoon, and evening panels.  Each bar represents how often customers purchased 1, 2, or 3 hot chocolates in a single transaction.  Overall, morning and afternoon have the highest number of hot cocoa purchases, with far more 1- and 2-item transactions compared to the evening. Evening sales are noticeably lower across all quantities, suggesting that customers buy hot cocoa less frequently later in the day. 
 
 ```{r}
 library(ggplot2)
@@ -230,6 +225,7 @@ coffee_sales %>%
     theme_minimal()
 
 ```
+This bar chart visualizes the total number of hot cocoa sales broken down by time of day: morning, afternoon, and evening.  Each bar’s height represents how many hot cocoa transactions occurred during that time period.  The green bars with black outlines highlight that the morning has the highest number of hot cocoa sales, followed by the afternoon.  Evening sales are the lowest, indicating that fewer hot cocoa transactions happen later in the day. This chart provides a clear, straightforward comparison of sales volume by time of day. 
 
 ```{r}
 library(ggplot2)
@@ -246,6 +242,7 @@ coffee_sales %>%
     theme_minimal()
 
 ```
+This stacked bar chart shows how the mix of products sold changes across different times of day.  Because the bars are plotted using position = "fill", each bar represents 100% of sales for that time period, with the colors showing what proportion of those sales came from each product category.  From the chart, we can see that tea products (both regular tea and loose tea) consistently make up a large share of sales across all time periods, while coffee and coffee-related products take up a noticeable portion as well, especially during the morning and midday hours.  Bakery items appear in every time block but generally make up a smaller percentage compared to beverages.  Some product categories, like drinking chocolate or branded items, contribute only small slices across all time periods. Overall, the plot reveals that while customers buy a variety of items throughout the day, tea and coffee dominate sales, and the relative proportions stay fairly stable, indicating consistent customer preferences regardless of time.
 
 ```{r}
 library(ggplot2)
@@ -262,11 +259,28 @@ coffee_sales %>%
     theme_minimal()
 
 ```
+This scatterplot shows the relationship between transaction quantity and unit price for items in the Drinking Chocolate category—essentially, hot cocoa sales.  Each point represents a single transaction, plotting how many hot cocoas were bought at once (on the x-axis) and the price per unit during that transaction (on the y-axis).
+
+What we see is that the unit price remains fairly consistent regardless of how many items are purchased.  Whether a customer buys one, two, or three hot cocoas, the price per drink typically falls into the same small range (roughly $3.50–$4.75). There is no clear upward or downward trend, meaning higher quantities don’t lead to discounts or price increases—each unit is priced independently of the total purchased.
+
+In short, the plot shows that hot cocoa pricing is stable, and customers are paying the same per cup whether they buy a single drink or multiple in the same transaction.
 
 ```{r}
-
+coffee_sales %>%
+  filter(product_category == "Drinking Chocolate") %>%
+ggplot() +
+geom_histogram(mapping = aes(x = transaction_qty)) +
+labs(title = "Distribution of Hot Cocoa ordered",
+x = "Number ordered")
 ```
+This histogram shows how many hot cocoas customers typically buy in a single transaction. Even though the binning is a little off (since the data only contain the values 1, 2, and 3), the pattern is still easy to read:
 
+Most customers buy just one hot cocoa at a time.
+The second most common quantity is two.  
+
+Purchases of three hot cocoas are much less frequent, appearing as a small bar on the right.
+
+Overall, the distribution is heavily right-skewed, meaning that single-item purchases dominate, with progressively fewer multi-cup orders.  This suggests that hot cocoa is usually bought as an individual drink rather than for groups or sharing.
 
 # 5. Visualization Quality and Storytelling
 
