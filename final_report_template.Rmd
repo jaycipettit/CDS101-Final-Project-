@@ -374,6 +374,8 @@ karlyndiary. (n.d.). Coffee‑Shop‑Sales‑Analysis [Computer software]. GitHu
 
 Pamplona, D. D. (2023). Regression and Classification in R. RPubs. https://rpubs.com/dmpamplona/1105238
 
+Singh, D. (2019, November 18). Building classification models in R. Pluralsight. https://www.pluralsight.com/resources/blog/guides/building-classification-models-in-r
+
 # Appendix (Optional)
 
 Include extra plots, diagnostic checks, or model comparisons if needed.
