@@ -365,12 +365,13 @@ sessionInfo()
 
 # 10. References
 
-List any references you used, such as:
+Abbas, A. (n.d.). Coffee Sales [Data set]. Kaggle. https://www.kaggle.com/datasets/ahmedabbas757/coffee-sales
 
-- Dataset documentation.  
-- Research papers or articles.  
-- Tutorials or blog posts.
+Dalpiaz, D. (n.d.). Chapter 9: Classification. In R for Statistical Learning. Retrieved December 8, 2025, from https://daviddalpiaz.github.io/r4sl/classification.html
 
+GeeksforGeeks. (2025, July 12). Classification in R Programming. Retrieved December 8, 2025, from https://www.geeksforgeeks.org/r-language/classification-in-r-programming/
+
+karlyndiary. (n.d.). Coffee‑Shop‑Sales‑Analysis [Computer software]. GitHub. https://github.com/karlyndiary/Coffee-Shop-Sales-Analysis
 # Appendix (Optional)
 
 Include extra plots, diagnostic checks, or model comparisons if needed.
