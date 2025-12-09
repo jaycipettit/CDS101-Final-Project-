@@ -245,27 +245,6 @@ coffee_sales %>%
 This stacked bar chart shows how the mix of products sold changes across different times of day.  Because the bars are plotted using position = "fill", each bar represents 100% of sales for that time period, with the colors showing what proportion of those sales came from each product category.  From the chart, we can see that tea products (both regular tea and loose tea) consistently make up a large share of sales across all time periods, while coffee and coffee-related products take up a noticeable portion as well, especially during the morning and midday hours.  Bakery items appear in every time block but generally make up a smaller percentage compared to beverages.  Some product categories, like drinking chocolate or branded items, contribute only small slices across all time periods. Overall, the plot reveals that while customers buy a variety of items throughout the day, tea and coffee dominate sales, and the relative proportions stay fairly stable, indicating consistent customer preferences regardless of time.
 
 ```{r}
-library(ggplot2)
-
-coffee_sales %>%
-  filter(product_category == "Drinking Chocolate") %>%
-  ggplot(aes(x = transaction_qty, y = unit_price)) +
-    geom_point(alpha = 0.6) +
-    labs(
-      x = "Transaction Quantity",
-      y = "Unit Price (USD)",
-      title = "Unit price vs. quantity for hot‑cocoa sales"
-    ) +
-    theme_minimal()
-
-```
-This scatterplot shows the relationship between transaction quantity and unit price for items in the Drinking Chocolate category—essentially, hot cocoa sales.  Each point represents a single transaction, plotting how many hot cocoas were bought at once (on the x-axis) and the price per unit during that transaction (on the y-axis).
-
-What we see is that the unit price remains fairly consistent regardless of how many items are purchased.  Whether a customer buys one, two, or three hot cocoas, the price per drink typically falls into the same small range (roughly $3.50–$4.75). There is no clear upward or downward trend, meaning higher quantities don’t lead to discounts or price increases—each unit is priced independently of the total purchased.
-
-In short, the plot shows that hot cocoa pricing is stable, and customers are paying the same per cup whether they buy a single drink or multiple in the same transaction.
-
-```{r}
 coffee_sales %>%
   filter(product_category == "Drinking Chocolate") %>%
 ggplot() +
@@ -378,4 +357,24 @@ Singh, D. (2019, November 18). Building classification models in R. Pluralsigh
 
 # Appendix (Optional)
 
-Include extra plots, diagnostic checks, or model comparisons if needed.
+```{r}
+library(ggplot2)
+
+coffee_sales %>%
+  filter(product_category == "Drinking Chocolate") %>%
+  ggplot(aes(x = transaction_qty, y = unit_price)) +
+    geom_point(alpha = 0.6) +
+    labs(
+      x = "Transaction Quantity",
+      y = "Unit Price (USD)",
+      title = "Unit price vs. quantity for hot‑cocoa sales"
+    ) +
+    theme_minimal()
+
+```
+
+This scatterplot shows the relationship between transaction quantity and unit price for items in the Drinking Chocolate category—essentially, hot cocoa sales.  Each point represents a single transaction, plotting how many hot cocoas were bought at once (on the x-axis) and the price per unit during that transaction (on the y-axis).
+
+What we see is that the unit price remains fairly consistent, regardless of how many items are purchased.  Whether a customer buys one, two, or three hot cocoas, the price per drink typically falls into the same small range (roughly $3.50–$4.75). There is no clear upward or downward trend, meaning higher quantities don’t lead to discounts or price increases—each unit is priced independently of the total purchased.
+
+In short, the plot shows that hot cocoa pricing is stable, and customers are paying the same per cup whether they buy a single drink or multiple in the same transaction.
