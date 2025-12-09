@@ -369,9 +369,7 @@ coffee_sales %>%
       x = "Transaction Quantity",
       y = "Unit Price (USD)",
       title = "Unit price vs. quantity for hot‑cocoa sales"
-    ) +
-    theme_minimal()
-
+    )
 ```
 
 This scatterplot shows the relationship between transaction quantity and unit price for items in the Drinking Chocolate category—essentially, hot cocoa sales.  Each point represents a single transaction, plotting how many hot cocoas were bought at once (on the x-axis) and the price per unit during that transaction (on the y-axis).
