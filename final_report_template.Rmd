@@ -332,10 +332,9 @@ For future work, the analysis could be extended by including additional features
 
 # 9. Code Quality & Reproducibility
 
-Briefly document how someone else can reproduce your results:
+To reproduce this analysis, begin by downloading the Coffee Shop Sales Excel file from Kaggle and reading it into R.  All data processing, feature creation, and modeling were performed within a single R script or R Markdown file, so no additional scripts are necessary.  The evening_flag target variable was created directly in this file, and transaction quantity was used as the main predictor for the logistic regression model.  Any necessary data cleaning, such as handling missing values or selecting relevant columns, was also done in this same script.
 
-- Which R scripts or Rmd files to run.  
-- Any required R packages.  
+The analysis relies on the dplyr package for data manipulation and ggplot2 for any visualizations of sales by time of day.  Running the script from start to finish will reproduce all results, including splitting the data into training and test sets, fitting the logistic regression model, generating predictions and calculating performance metrics such as the confusion matrix and accuracy.  This approach ensures that another user with access to the same dataset and packages can reproduce the key findings without needing any additional files or software.  
 
 ```{r session-info, echo=FALSE}
 sessionInfo()
@@ -352,6 +351,8 @@ GeeksforGeeks. (2025, July 12). Classification in R Programming. Retrieved Dec
 karlyndiary. (n.d.). Coffee‑Shop‑Sales‑Analysis [Computer software]. GitHub. https://github.com/karlyndiary/Coffee-Shop-Sales-Analysis
 
 Pamplona, D. D. (2023). Regression and Classification in R. RPubs. https://rpubs.com/dmpamplona/1105238
+
+Penn Libraries. (2025, July 8). Text Analysis Using R. Retrieved December 8, 2025, from https://guides.library.upenn.edu/penntdm/r
 
 Singh, D. (2019, November 18). Building classification models in R. Pluralsight. https://www.pluralsight.com/resources/blog/guides/building-classification-models-in-r
 
