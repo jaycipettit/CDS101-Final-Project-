@@ -16,7 +16,7 @@ output:
 
 # 1. Problem Definition
 
-The main problem or question we are investigating is if time of day impacts the sale of hot chocolate/cocoa drinks.  
+The main goal of our project is to  investigate if time of day impacts the sale of hot chocolate/cocoa drinks.  
 
 This question is interesting because the general recommendation is to avoid caffeine later in the day.  Knowing this, we would expect to see hot cocoa sales improve later in the day as an decaffeinated option.  
 
@@ -122,7 +122,7 @@ head(data)
 
 We create a new dataframe called coffee_sales that contains only the relevant columns for analysis: transaction_time, transaction_qty, product_category, product_type and product_detail.  Next, we took the transaction_time column and looked at the time specifically, using that to create a new column that filtered each transaction into morning, afternoon or evening categories based on the time.  Finally, we define a function remove_outliers() that identifies outliers using the interquartile range (IQR) method, which considers values outside 1.5 times the IQR above the third quartile or below the first quartile as outliers.  Using this function, we filter the original dataset to remove outliers in transaction_qty, resulting in a cleaner dataset data_no_outliers that is more suitable for analysis.
 
-```{r cleaning, eval=FALSE}
+```{r cleaning}
 library(dplyr)
 
 coffee_sales <- data %>%
@@ -135,11 +135,12 @@ coffee_sales <- data %>%
          product_detail)
 ```
 
+
 ```{r}
 library(dplyr)
 library(lubridate)
 
-coffee_sales <- coffee_sales %>%
+ coffee_sales <- coffee_sales %>%
   mutate(
     datetime = ymd_hms(transaction_time),
     hour = hour(datetime),   # extract hour (0–23)
