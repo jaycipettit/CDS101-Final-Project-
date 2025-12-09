@@ -135,6 +135,7 @@ coffee_sales <- data %>%
          product_detail)
 ```
 
+
 ```{r}
 library(dplyr)
 library(lubridate)
