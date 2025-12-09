@@ -282,7 +282,7 @@ Describe:
 - A short interpretation of each metric/plot.
 
 ```{r}
-set.seed(777)
+set.seed(123)
 
 data_clean <- coffee_sales %>%
   filter(product_category == "Drinking Chocolate") %>%
@@ -312,7 +312,7 @@ The data splitting strategy was an 80/20 train/test split, ensuring that the mod
 
 The confusion matrix provides a clear summary of prediction outcomes and highlights where the model makes errors.  Accuracy gives a quick overall sense of performance but does not differentiate between classes, which is why precision, recall, and F1 could be calculated for more detailed evaluation if needed.  The ROC curve and AUC summarize the trade-off between true positive rate and false positive rate; a higher AUC indicates better discrimination between evening and non-evening sales.  Together, these metrics and visualizations provide a clear picture of how well the logistic regression model predicts evening hot cocoa transactions.
 
-The logistic regression model achieved an accuracy of 0.827, meaning it correctly predicted whether a sale occurred in the evening about 82.7% of the time. From the confusion matrix:
+The logistic regression model achieved an accuracy of 0.835, meaning it correctly predicted whether a sale occurred in the evening about 83.5% of the time. From the confusion matrix:
 
 True negatives (0 predicted as 0): 1915 — the model correctly identified 1915 non-evening sales.
 
