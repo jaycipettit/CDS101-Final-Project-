@@ -345,12 +345,11 @@ Overall, the model performs well at predicting non-evening sales but underestima
 
 # 8. Conclusions & Recommendations
 
-Summarize the key takeaways:
+The analysis shows that most hot cocoa sales occur in the morning rather than in the evening, directly answering the original research question: hot cocoa sales do not improve in the evening.  The logistic regression model and exploratory counts both indicate that the evening period accounts for a smaller proportion of transactions compared with morning and afternoon.  This pattern suggests that customers are more likely to purchase hot cocoa earlier in the day, and transaction quantity alone has limited predictive power for identifying evening sales.
 
-- Answer your original research question(s) directly.  
-- Highlight the most important patterns or relationships you found.  
-- Discuss limitations (data size, bias, missing variables, etc.).  
-- Suggest possible extensions or future work.
+However, there are limitations to this analysis.  The dataset may not capture all relevant factors influencing sales, such as day of the week, holidays, weather, or promotions.  Additionally, the model slightly underestimates evening sales, partly due to the imbalance between morning and evening transactions.  The relatively small number of evening sales compared to non-evening sales may also limit the robustness of the predictions.
+
+For future work, the analysis could be extended by including additional features (e.g., weather, promotions, weekday vs. weekend), using a larger dataset, or testing other classification models such as decision trees or random forests.  Adjusting the classification threshold or using techniques to address class imbalance could also improve the model’s ability to detect evening sales.  Overall, these steps would provide a more nuanced understanding of the factors that drive hot cocoa purchases throughout the day.
 
 # 9. Code Quality & Reproducibility
 
@@ -372,6 +371,9 @@ Dalpiaz, D. (n.d.). Chapter 9: Classification. In R for Statistical Learning. Re
 GeeksforGeeks. (2025, July 12). Classification in R Programming. Retrieved December 8, 2025, from https://www.geeksforgeeks.org/r-language/classification-in-r-programming/
 
 karlyndiary. (n.d.). Coffee‑Shop‑Sales‑Analysis [Computer software]. GitHub. https://github.com/karlyndiary/Coffee-Shop-Sales-Analysis
+
+Pamplona, D. D. (2023). Regression and Classification in R. RPubs. https://rpubs.com/dmpamplona/1105238
+
 # Appendix (Optional)
 
 Include extra plots, diagnostic checks, or model comparisons if needed.
