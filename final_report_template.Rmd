@@ -272,16 +272,6 @@ To address whether hot cocoa sales increase in the evening, the problem is frame
 
 # 7. Model Implementation & Evaluation
 
-This corresponds to the **Model Implementation & Evaluation** rubric criterion.
-
-Describe:
-
-- Features used.  
-- Data splitting strategy (train/test or cross-validation).  
-- Metrics used (accuracy, F1, RMSE, etc.).  
-- Tables/plots summarizing performance.  
-- A short interpretation of each metric/plot.
-
 ```{r}
 set.seed(123)
 
